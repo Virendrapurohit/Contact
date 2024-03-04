@@ -297,7 +297,7 @@ const EditContact = ({ id, onDismiss, }: { id?: string, onDismiss: any,  }) => {
                         </Stack> */}
 
                         <Stack style={{ position: 'absolute', right: 10, bottom: 10 }}>
-                            <PrimaryButton text="Submit" iconProps={{ iconName: 'Save' }} type="submit" onClick={() => handleSubmit()} />
+                            {/* <PrimaryButton text="Submit" iconProps={{ iconName: 'Save' }} type="submit" onClick={() => handleSubmit()} /> */}
                         </Stack>
 
                     </>

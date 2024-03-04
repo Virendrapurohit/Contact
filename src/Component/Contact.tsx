@@ -59,7 +59,7 @@ const Contact = () => {
     return <Stack style={{ margin: 12 }}>
         {loader ? <Loader /> :
             <>
-                <PrimaryButton iconProps={{ iconName: 'Add' }} text="Add" style={{ width: 'fit-content' }} onClick={() => { setShow({ type: 'edit' }) }} />
+                {/* <PrimaryButton iconProps={{ iconName: 'Add' }} text="Add" style={{ width: 'fit-content' }} onClick={() => { setShow({ type: 'edit' }) }} /> */}
 
 
                 {/* <input type="button" value="+Add" onClick={() => { setShow({ type: 'edit' }) }} /> */}
