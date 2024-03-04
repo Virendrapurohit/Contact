@@ -1,4 +1,4 @@
-import { DetailsList, DetailsListLayoutMode, IColumn, Icon, PrimaryButton, Stack } from "@fluentui/react";
+import { DetailsList, DetailsListLayoutMode, IColumn, Icon,  Stack } from "@fluentui/react";
 import React from "react";
 import Service from "../Service/Service";
 import Loader from "./Loader";
