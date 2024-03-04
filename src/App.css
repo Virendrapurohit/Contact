@@ -7,6 +7,22 @@
   pointer-events: none;
 }
 
+.content {
+  color: rgb(0, 0, 0);
+}
+
+.invalid {
+  border: 1px solid red !important;
+}
+
+.valid {
+  border: 1px solid rgb(13, 145, 24) !important;
+}
+
+
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
