@@ -8,7 +8,8 @@ import "./App.css";
 export const App: React.FunctionComponent = () => {
   initializeIcons();
   return (
-  
+
+
     <Contact/>
     );};
     

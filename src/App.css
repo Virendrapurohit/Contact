@@ -1,24 +1,30 @@
 /* .invalid {
   border: 1px solid red !important;
-} */
+} 
 
-/* .horizontal:hover{
+.horizontal:hover{
   border: 1px solid  rgb(13, 145, 24) !important;
-} */
+}  */
 
 .Stackname {
   margin-left: 241px;
-  padding: 27px
+  padding: 27px;
 }
+
 .PrimButton {
   max-width: 100px;
   margin: 24px -7px;
 }
+
 .StartChoiceGroup {
-  display: flex;}
+  display: flex;
+}
+
 .PrimButton:hover {
   color: #1b4b85;
-  background-color: #9a9a9a;
+  background-color: #BAC9E8;
 }
+
 .Reloadbutton {
-  margin: -30px 0 0 111px;}
+  margin: -30px 0 0 111px;
+}
