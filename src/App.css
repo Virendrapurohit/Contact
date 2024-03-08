@@ -1,8 +1,8 @@
-/* .invalid {
+/* .horizontal:hover {
   border: 1px solid red !important;
 } 
 
-.horizontal:hover{
+.valid{
   border: 1px solid  rgb(13, 145, 24) !important;
 }  */
 
@@ -16,9 +16,7 @@
   margin: 24px -7px;
 }
 
-.StartChoiceGroup {
-  display: flex;
-}
+
 
 .PrimButton:hover {
   color: #1b4b85;

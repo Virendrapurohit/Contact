@@ -67,6 +67,11 @@ const ErrorSchema = Yup.object().shape({
   gender: Yup.string().required("Gender Is Required!"),
   // files: Yup.string().required("File Is Required!"),
 });
+
+const itemStyles: React.CSSProperties = {
+  display: "flex"
+};
+
 const EditContact = ({ id, onDismiss }: { id?: string; onDismiss: any }) => {
   const [initial, setInitial] = React.useState<any>({
     id: "",
@@ -129,7 +134,7 @@ const EditContact = ({ id, onDismiss }: { id?: string; onDismiss: any }) => {
             }}
             validationSchema={ErrorSchema}
           >
-            {({ values, handleSubmit, errors, handleReset, setFieldValue }) => {
+            {({ values, handleSubmit, errors, handleReset, setFieldValue, touched }) => {
               return (
                 <>
                   {/* {console.log("err", errors)} */}
@@ -297,11 +302,9 @@ const EditContact = ({ id, onDismiss }: { id?: string; onDismiss: any }) => {
                         { key: 1, text: "1-2 Years" },
                         { key: 2, text: "2-3 Years" },
                         { key: 3, text: "3-4 Years" },
-                        { key: 4, text: "4+Years" },
+                        { key: 4, text: "4+  Years" },
                       ]}
-                      errorMessage={
-                        errors?.experience ? (errors?.experience as any) : ""
-                      }
+                      errorMessage={errors?.experience ? (errors?.experience as any) : ""}
                     />
                   </Stack>
                   <Stack
@@ -379,7 +382,7 @@ const EditContact = ({ id, onDismiss }: { id?: string; onDismiss: any }) => {
                   </sub>
 
                   <Stack horizontal horizontalAlign="start">
-                    <Stack.Item align="start" className="StartChoiceGroup">
+                    <Stack.Item align="start" style={itemStyles}>
                       <ChoiceGroup
                         label="Gender"
                         // defaultSelectedKey="1"
@@ -394,14 +397,14 @@ const EditContact = ({ id, onDismiss }: { id?: string; onDismiss: any }) => {
                           { key: "0", text: "Male" },
                           { key: "1", text: "Female" },
                         ]}
-                        // styles={{ root: { flexDirection: 'row' } }}
+                      // styles={{ root: { flexDirection: 'row' } }}
                       />
                     </Stack.Item>
                     <Stack.Item align="end" className="Stackname">
                       <Checkbox label="Do you agree to the terms?" checked />
                     </Stack.Item>
                   </Stack>
-                  <Stack style={{}}>
+                  <Stack>
                     <PrimaryButton
                       className="PrimButton"
                       text="Submit"

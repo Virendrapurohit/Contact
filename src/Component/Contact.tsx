@@ -14,6 +14,7 @@ import React from "react";
 import Service from "../Service/Service";
 import Loader from "./Loader";
 import EditContact from "./EditContact";
+import { Pagination, } from "antd";
 
 const Contact = () => {
   const [loader, setLoader] = React.useState<boolean>(false);
@@ -23,6 +24,8 @@ const Contact = () => {
     type: "",
     params: {},
   });
+  const [selectedRowKeys, setSelectedRowKeys] = React.useState<React.Key[]>([]);
+
   const _columns: IColumn[] = [
     {
       key: "column1",
@@ -31,6 +34,7 @@ const Contact = () => {
       minWidth: 100,
       maxWidth: 200,
       isResizable: true,
+
     },
     {
       key: "column2",
@@ -120,6 +124,7 @@ const Contact = () => {
       maxWidth: 200,
       isResizable: true,
     },
+
     {
       key: "column2",
       name: "Files",
@@ -130,9 +135,11 @@ const Contact = () => {
       onRender: (itm: any) =>
         itm?.Files?.length > 0 ? (
           <span
+
             onClick={() => {
-              debugger;
-              window.open(itm?.Files[1], "_blank");
+              ;
+              debugger
+              window.open(itm?.Files[0], "_blank");
               //  window.location.href = itm?.Files[0];
             }}
           >
@@ -160,15 +167,7 @@ const Contact = () => {
       ),
     },
 
-    // {
-    //     key: 'column2', name: '', fieldName: '', minWidth: 20, maxWidth: 20, isResizable: true, onRender: (itm: any) => <Icon iconName="Delete" style={{ color: 'red' }}
-    //         onClick={() => {
-    //             setLoader(true);
-    //             Service.delete(itm?.Id).finally(() => {
-    //                 setLoader(false);
-    //             })
-    //         }} />
-    // }
+
     {
       key: "column2",
       name: "",
@@ -188,6 +187,7 @@ const Contact = () => {
   const getData = () => {
     Service.getList()
       .then((res) => {
+        setSelectedRowKeys([]);
         setItems(res.data);
       })
       .finally(() => {
@@ -198,7 +198,18 @@ const Contact = () => {
   React.useEffect(() => {
     getData();
   }, [loader]);
+
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
+
     <Stack style={{ margin: 12 }}>
       <Dialog
         hidden={hideDialog.type !== "c"}
@@ -254,6 +265,15 @@ const Contact = () => {
             ariaLabelForSelectionColumn="Toggle selection"
             ariaLabelForSelectAllCheckbox="Toggle selection for all items"
             checkButtonAriaLabel="select row"
+
+          />
+          <Pagination
+            style={{ margin: 30, }}
+            total={_columns.length}
+            pageSize={5}
+            showSizeChanger={true}
+            showQuickJumper
+            showTotal={(total) => `Total ${total} items`}
           />
         </>
       )}
@@ -264,8 +284,13 @@ const Contact = () => {
             setShow({ type: "", params: {} });
           }}
         />
+
       )}
+
     </Stack>
   );
 };
+
 export default Contact;
+
+
